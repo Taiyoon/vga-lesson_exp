@@ -1,0 +1,64 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\altera\13.0sp1
+vbench
+!i10b 1
+Z1 !s100 AnEK_=7ZPcfI@?Lf<T@n=2
+Z2 I2j?aoR^_P3SfZdWn[eZ9=3
+Z3 VUH03Z:]637R2F816H=:l90
+Z4 dC:\Users\hah\Desktop\VGA
+Z5 w1666269558
+Z6 8C:/Users/hah/Desktop/VGA/test_VGA_ENLIGHT.v
+Z7 FC:/Users/hah/Desktop/VGA/test_VGA_ENLIGHT.v
+L0 6
+Z8 OV;L;10.1d;51
+r1
+!s85 0
+31
+Z9 !s108 1666271823.032000
+Z10 !s107 VGA.v|C:/Users/hah/Desktop/VGA/test_VGA_ENLIGHT.v|
+Z11 !s90 -reportprogress|300|-work|work|C:/Users/hah/Desktop/VGA/test_VGA_ENLIGHT.v|
+!s101 -O0
+Z12 o-work work -O0
+vkey5
+Z13 !s100 ]od2K0=dUEVz5<QocLD3X3
+Z14 I:;CMlzlWn7FaD6c4LR^=@3
+Z15 VgPT8MV2O<[QCmgOgFD]m_2
+R4
+Z16 w1666256845
+Z17 8C:/Users/hah/Desktop/VGA/key5.v
+Z18 FC:/Users/hah/Desktop/VGA/key5.v
+L0 21
+R8
+r1
+31
+Z19 !s90 -reportprogress|300|-work|work|C:/Users/hah/Desktop/VGA/key5.v|
+R12
+Z20 !s108 1666271822.825000
+Z21 !s107 C:/Users/hah/Desktop/VGA/key5.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vVGA
+!i10b 1
+!s100 QmJCa]6bVi7zhoaJBGChQ2
+I`lSC9fL3[44Lm:BH:TQJ;0
+Z22 VCMN1_Rnd?J__hja9PjKzT1
+R4
+Z23 w1666271805
+FVGA.v
+R6
+R7
+L0 21
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!s101 -O0
+R12
+Z24 n@v@g@a

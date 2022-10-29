@@ -1,0 +1,86 @@
+﻿`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date:    19:15:57 08/06/2013 
+// Design Name: 
+// Module Name:    key5 
+// Project Name: 
+// Target Devices: 
+// Tool versions: 
+// Description: 
+//
+// Dependencies: 
+//
+// Revision: 
+// Revision 0.01 - File Created
+// Additional Comments: 
+//
+//////////////////////////////////////////////////////////////////////////////////
+module key5(CLK,RESET,din,dout
+    );
+input CLK,RESET;
+input	din;
+output dout;//--'0'有效	 
+
+parameter s0=1'b0;
+parameter s1=1'b1;//--定义两种状态
+
+reg [21:0] count;//	--分频器
+reg keyclk;//	--分频器
+reg pre_s,next_s;//--状态机指针
+reg dout;
+always @(posedge CLK or negedge RESET)	//--时钟进程，产生各种时钟信号
+	begin
+	 	if(RESET==0) 
+        begin
+		    keyclk<=0;
+			 count<=0;	
+        end			 
+		else 
+		  begin
+			count<=count+1;
+			if(count==1000000) 
+           begin
+			   keyclk<=~keyclk;
+				count<=0;
+			  end
+			else count<=count+1;
+		end //--毫秒时钟
+	end
+
+always @(posedge keyclk or negedge RESET)	//--状态机激励源
+	begin
+	 	if(RESET==0) 
+        begin
+		    pre_s<=s0;		
+		  end
+		else pre_s<=next_s;
+	end
+
+always @(pre_s or next_s or din)
+	begin
+	 	case(pre_s)
+			 s0:
+			    begin
+						dout<=1;
+						if (din==0)  next_s<=s1; //--检测到按键
+						else next_s<=s0;
+					
+             end
+			 s1:
+			    begin
+			         dout<=1;
+						if (din==0)  dout<=0; //--检测到按键
+						else next_s<=s0;
+				
+		       end
+			 default :
+             begin
+			     next_s<=s0;
+				 end
+		endcase
+	end
+	
+endmodule

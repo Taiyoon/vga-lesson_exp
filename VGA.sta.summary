@@ -1,0 +1,125 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow Model Setup 'CLK'
+Slack : -3.629
+TNS   : -64.931
+
+Type  : Slow Model Setup 'key5:key5_a|keyclk'
+Slack : -3.531
+TNS   : -3.531
+
+Type  : Slow Model Setup 'CC[4]'
+Slack : -2.360
+TNS   : -14.826
+
+Type  : Slow Model Setup 'FS[5]'
+Slack : -2.037
+TNS   : -7.900
+
+Type  : Slow Model Setup 'KEYA'
+Slack : -0.044
+TNS   : -0.060
+
+Type  : Slow Model Hold 'CLK'
+Slack : -2.601
+TNS   : -10.517
+
+Type  : Slow Model Hold 'KEYA'
+Slack : -1.476
+TNS   : -1.476
+
+Type  : Slow Model Hold 'FS[5]'
+Slack : -0.832
+TNS   : -2.543
+
+Type  : Slow Model Hold 'CC[4]'
+Slack : 1.190
+TNS   : 0.000
+
+Type  : Slow Model Hold 'key5:key5_a|keyclk'
+Slack : 4.265
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'CLK'
+Slack : -1.941
+TNS   : -44.977
+
+Type  : Slow Model Minimum Pulse Width 'KEYA'
+Slack : -1.777
+TNS   : -4.745
+
+Type  : Slow Model Minimum Pulse Width 'CC[4]'
+Slack : -0.742
+TNS   : -13.356
+
+Type  : Slow Model Minimum Pulse Width 'FS[5]'
+Slack : -0.742
+TNS   : -7.420
+
+Type  : Slow Model Minimum Pulse Width 'key5:key5_a|keyclk'
+Slack : -0.742
+TNS   : -1.484
+
+Type  : Fast Model Setup 'key5:key5_a|keyclk'
+Slack : -1.191
+TNS   : -1.191
+
+Type  : Fast Model Setup 'CLK'
+Slack : -0.662
+TNS   : -5.384
+
+Type  : Fast Model Setup 'CC[4]'
+Slack : -0.154
+TNS   : -0.412
+
+Type  : Fast Model Setup 'FS[5]'
+Slack : -0.028
+TNS   : -0.028
+
+Type  : Fast Model Setup 'KEYA'
+Slack : 0.640
+TNS   : 0.000
+
+Type  : Fast Model Hold 'CLK'
+Slack : -1.408
+TNS   : -6.427
+
+Type  : Fast Model Hold 'FS[5]'
+Slack : -0.706
+TNS   : -2.565
+
+Type  : Fast Model Hold 'KEYA'
+Slack : -0.683
+TNS   : -0.683
+
+Type  : Fast Model Hold 'CC[4]'
+Slack : 0.366
+TNS   : 0.000
+
+Type  : Fast Model Hold 'key5:key5_a|keyclk'
+Slack : 2.071
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'CLK'
+Slack : -1.380
+TNS   : -30.380
+
+Type  : Fast Model Minimum Pulse Width 'KEYA'
+Slack : -1.222
+TNS   : -3.222
+
+Type  : Fast Model Minimum Pulse Width 'CC[4]'
+Slack : -0.500
+TNS   : -9.000
+
+Type  : Fast Model Minimum Pulse Width 'FS[5]'
+Slack : -0.500
+TNS   : -5.000
+
+Type  : Fast Model Minimum Pulse Width 'key5:key5_a|keyclk'
+Slack : -0.500
+TNS   : -1.000
+
+------------------------------------------------------------

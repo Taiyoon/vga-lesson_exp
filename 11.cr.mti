@@ -1,0 +1,23 @@
+C:/Users/hah/Desktop/VGA/VGA.v {1 {vlog -work work C:/Users/hah/Desktop/VGA/VGA.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module VGA
+
+Top level modules:
+	VGA
+
+} {} {}} C:/Users/hah/Desktop/VGA/key5.v {1 {vlog -work work C:/Users/hah/Desktop/VGA/key5.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module key5
+
+Top level modules:
+	key5
+
+} {} {}} C:/Users/hah/Desktop/VGA/test_VGA_ENLIGHT.v {1 {vlog -work work C:/Users/hah/Desktop/VGA/test_VGA_ENLIGHT.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module VGA
+-- Compiling module bench
+
+Top level modules:
+	bench
+
+} {} {}}

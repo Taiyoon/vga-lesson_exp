@@ -1,0 +1,65 @@
+|VGA
+CLK => CLK.IN1
+KEYA => KEYA.IN1
+RESET => RESET.IN1
+VGA_HS <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
+VGA_VS <= LessThan1.DB_MAX_OUTPUT_PORT_TYPE
+VGA_R <= GRB.DB_MAX_OUTPUT_PORT_TYPE
+VGA_G <= GRB.DB_MAX_OUTPUT_PORT_TYPE
+VGA_B <= GRB.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VGA|key5:key5_a
+CLK => count[0].CLK
+CLK => count[1].CLK
+CLK => count[2].CLK
+CLK => count[3].CLK
+CLK => count[4].CLK
+CLK => count[5].CLK
+CLK => count[6].CLK
+CLK => count[7].CLK
+CLK => count[8].CLK
+CLK => count[9].CLK
+CLK => count[10].CLK
+CLK => count[11].CLK
+CLK => count[12].CLK
+CLK => count[13].CLK
+CLK => count[14].CLK
+CLK => count[15].CLK
+CLK => count[16].CLK
+CLK => count[17].CLK
+CLK => count[18].CLK
+CLK => count[19].CLK
+CLK => count[20].CLK
+CLK => count[21].CLK
+CLK => keyclk.CLK
+RESET => count[0].ACLR
+RESET => count[1].ACLR
+RESET => count[2].ACLR
+RESET => count[3].ACLR
+RESET => count[4].ACLR
+RESET => count[5].ACLR
+RESET => count[6].ACLR
+RESET => count[7].ACLR
+RESET => count[8].ACLR
+RESET => count[9].ACLR
+RESET => count[10].ACLR
+RESET => count[11].ACLR
+RESET => count[12].ACLR
+RESET => count[13].ACLR
+RESET => count[14].ACLR
+RESET => count[15].ACLR
+RESET => count[16].ACLR
+RESET => count[17].ACLR
+RESET => count[18].ACLR
+RESET => count[19].ACLR
+RESET => count[20].ACLR
+RESET => count[21].ACLR
+RESET => keyclk.ACLR
+RESET => pre_s.ACLR
+din => next_s.IN1
+din => dout.DATAB
+din => next_s.DATAA
+dout <= dout.DB_MAX_OUTPUT_PORT_TYPE
+
+
