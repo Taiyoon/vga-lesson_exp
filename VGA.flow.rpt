@@ -1,5 +1,5 @@
 Flow report for VGA
-Thu Oct 20 17:07:58 2022
+Mon Oct 24 20:37:56 2022
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,22 +40,22 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Thu Oct 20 17:07:56 2022           ;
+; Flow Status                        ; Successful - Mon Oct 24 20:37:56 2022           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; VGA                                             ;
 ; Top-level Entity Name              ; VGA                                             ;
 ; Family                             ; Cyclone II                                      ;
 ; Device                             ; EP2C5Q208C8                                     ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 106 / 4,608 ( 2 % )                             ;
-;     Total combinational functions  ; 106 / 4,608 ( 2 % )                             ;
-;     Dedicated logic registers      ; 46 / 4,608 ( < 1 % )                            ;
-; Total registers                    ; 46                                              ;
-; Total pins                         ; 8 / 142 ( 6 % )                                 ;
+; Total logic elements               ; 170                                             ;
+;     Total combinational functions  ; 170                                             ;
+;     Dedicated logic registers      ; 75                                              ;
+; Total registers                    ; 75                                              ;
+; Total pins                         ; 9                                               ;
 ; Total virtual pins                 ; 0                                               ;
-; Total memory bits                  ; 0 / 119,808 ( 0 % )                             ;
-; Embedded Multiplier 9-bit elements ; 0 / 26 ( 0 % )                                  ;
-; Total PLLs                         ; 0 / 2 ( 0 % )                                   ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 1                                               ;
 +------------------------------------+-------------------------------------------------+
 
 
@@ -64,58 +64,60 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/20/2022 17:07:46 ;
+; Start date & time ; 10/24/2022 20:37:55 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; VGA                 ;
 +-------------------+---------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                ;
-+-------------------------------------+--------------------------------+---------------+-------------+------------+
-; Assignment Name                     ; Value                          ; Default Value ; Entity Name ; Section Id ;
-+-------------------------------------+--------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 83613316571989.166625686601116 ; --            ; --          ; --         ;
-; CYCLONEII_OPTIMIZATION_TECHNIQUE    ; Speed                          ; Balanced      ; --          ; --         ;
-; PARTITION_COLOR                     ; 2147039                        ; --            ; --          ; Top        ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING          ; --            ; --          ; Top        ;
-; PARTITION_NETLIST_TYPE              ; SOURCE                         ; --            ; --          ; Top        ;
-; USE_GENERATED_PHYSICAL_CONSTRAINTS  ; Off                            ; --            ; --          ; eda_palace ;
-+-------------------------------------+--------------------------------+---------------+-------------+------------+
++------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                 ;
++-------------------------------------+---------------------------------+---------------+-------------+------------+
+; Assignment Name                     ; Value                           ; Default Value ; Entity Name ; Section Id ;
++-------------------------------------+---------------------------------+---------------+-------------+------------+
+; COMPILER_SIGNATURE_ID               ; 220538028689516.166661507507872 ; --            ; --          ; --         ;
+; CYCLONEII_OPTIMIZATION_TECHNIQUE    ; Speed                           ; Balanced      ; --          ; --         ;
+; IP_TOOL_NAME                        ; ALTPLL                          ; --            ; --          ; --         ;
+; IP_TOOL_NAME                        ; ALTPLL                          ; --            ; --          ; --         ;
+; IP_TOOL_VERSION                     ; 13.0                            ; --            ; --          ; --         ;
+; IP_TOOL_VERSION                     ; 13.0                            ; --            ; --          ; --         ;
+; MISC_FILE                           ; pll.bsf                         ; --            ; --          ; --         ;
+; MISC_FILE                           ; pll_inst.v                      ; --            ; --          ; --         ;
+; MISC_FILE                           ; pll_bb.v                        ; --            ; --          ; --         ;
+; MISC_FILE                           ; pll.cmp                         ; --            ; --          ; --         ;
+; MISC_FILE                           ; pll.ppf                         ; --            ; --          ; --         ;
+; MISC_FILE                           ; testpll_bb.v                    ; --            ; --          ; --         ;
+; MISC_FILE                           ; testpll.ppf                     ; --            ; --          ; --         ;
+; PARTITION_COLOR                     ; 2147039                         ; --            ; --          ; Top        ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING           ; --            ; --          ; Top        ;
+; PARTITION_NETLIST_TYPE              ; SOURCE                          ; --            ; --          ; Top        ;
+; USE_GENERATED_PHYSICAL_CONSTRAINTS  ; Off                             ; --            ; --          ; eda_palace ;
++-------------------------------------+---------------------------------+---------------+-------------+------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------+
-; Flow Elapsed Time                                                                                                             ;
-+---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
-+---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:03     ; 1.0                     ; 4607 MB             ; 00:00:01                           ;
-; Fitter                    ; 00:00:04     ; 1.0                     ; 4820 MB             ; 00:00:04                           ;
-; Assembler                 ; 00:00:01     ; 1.0                     ; 4562 MB             ; 00:00:01                           ;
-; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 4560 MB             ; 00:00:01                           ;
-; Total                     ; 00:00:09     ; --                      ; --                  ; 00:00:07                           ;
-+---------------------------+--------------+-------------------------+---------------------+------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:00:01     ; 1.0                     ; 4594 MB             ; 00:00:01                           ;
+; Total                ; 00:00:01     ; --                      ; --                  ; 00:00:01                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+----------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                        ;
-+---------------------------+------------------+-----------+------------+----------------+
-; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
-+---------------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis      ; DESKTOP-6AFPLIP  ; Windows 7 ; 6.2        ; x86_64         ;
-; Fitter                    ; DESKTOP-6AFPLIP  ; Windows 7 ; 6.2        ; x86_64         ;
-; Assembler                 ; DESKTOP-6AFPLIP  ; Windows 7 ; 6.2        ; x86_64         ;
-; TimeQuest Timing Analyzer ; DESKTOP-6AFPLIP  ; Windows 7 ; 6.2        ; x86_64         ;
-+---------------------------+------------------+-----------+------------+----------------+
++-----------------------------------------------------------------------------------+
+; Flow OS Summary                                                                   ;
++----------------------+------------------+-----------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
++----------------------+------------------+-----------+------------+----------------+
+; Analysis & Synthesis ; DESKTOP-T9G9I91  ; Windows 7 ; 6.2        ; x86_64         ;
++----------------------+------------------+-----------+------------+----------------+
 
 
 ------------
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off VGA -c VGA
-quartus_fit --read_settings_files=off --write_settings_files=off VGA -c VGA
-quartus_asm --read_settings_files=off --write_settings_files=off VGA -c VGA
-quartus_sta VGA -c VGA
 
 
 

@@ -1,4 +1,4 @@
-// `timescale 1ns / 1ps
+`timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -22,16 +22,16 @@ module key5(CLK,RESET,din,dout
     );
 input CLK,RESET;
 input	din;
-output dout;//--'0'æœ‰æ•ˆ	 
+output dout;//--'0'ÓĞĞ§	 
 
 parameter s0=1'b0;
-parameter s1=1'b1;//--å®šä¹‰ä¸¤ç§çŠ¶æ€
+parameter s1=1'b1;//--¶¨ÒåÁ½ÖÖ×´Ì¬
 
-reg [21:0] count;//	--åˆ†é¢‘å™¨
-reg keyclk;//	--åˆ†é¢‘å™¨
-reg pre_s,next_s;//--çŠ¶æ€æœºæŒ‡é’ˆ
+reg [21:0] count;//	--·ÖÆµÆ÷
+reg keyclk;//	--·ÖÆµÆ÷
+reg pre_s,next_s;//--×´Ì¬»úÖ¸Õë
 reg dout;
-always @(posedge CLK or negedge RESET)	//--æ—¶é’Ÿè¿›ç¨‹ï¼Œäº§ç”Ÿå„ç§æ—¶é’Ÿä¿¡å·
+always @(posedge CLK or negedge RESET)	//--Ê±ÖÓ½ø³Ì£¬²úÉú¸÷ÖÖÊ±ÖÓĞÅºÅ
 	begin
 	 	if(RESET==0) 
         begin
@@ -47,10 +47,10 @@ always @(posedge CLK or negedge RESET)	//--æ—¶é’Ÿè¿›ç¨‹ï¼Œäº§ç”Ÿå„ç§æ—¶é’Ÿä¿¡å
 				count<=0;
 			  end
 			else count<=count+1;
-		end //--æ¯«ç§’æ—¶é’Ÿ
+		end //--ºÁÃëÊ±ÖÓ
 	end
 
-always @(posedge keyclk or negedge RESET)	//--çŠ¶æ€æœºæ¿€åŠ±æº
+always @(posedge keyclk or negedge RESET)	//--×´Ì¬»ú¼¤ÀøÔ´
 	begin
 	 	if(RESET==0) 
         begin
@@ -65,14 +65,14 @@ always @(pre_s or next_s or din)
 			 s0:
 			    begin
 						dout<=1;
-						if (din==0)  next_s<=s1; //--æ£€æµ‹åˆ°æŒ‰é”®
+						if (din==0)  next_s<=s1; //--¼ì²âµ½°´¼ü
 						else next_s<=s0;
 					
              end
 			 s1:
 			    begin
 			         dout<=1;
-						if (din==0)  dout<=0; //--æ£€æµ‹åˆ°æŒ‰é”®
+						if (din==0)  dout<=0; //--¼ì²âµ½°´¼ü
 						else next_s<=s0;
 				
 		       end

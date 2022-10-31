@@ -1,4 +1,4 @@
-ï»¿`timescale 1ns / 1ps
+`timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -18,22 +18,47 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module VGA(CLK,KEYA,RESET,VGA_HS,VGA_VS,VGA_R,VGA_G,VGA_B
+
+// VGA controller for 1920*1080@60Hz test
+
+/*  1920*1080@60Hz VGA spec
+ *  Pixel Clock        148.5 MHz
+ *  +-------------+------+-------------+------+------------+---------------+
+ *  |    NAME     | DATA | FRONT_PORCH | SYNC | BACK_PORCH | SYNC Polarity |
+ *  +-------------+------+-------------+------+------------+---------------+
+ *  | Hor_timings | 1920 |     88      |  44  |     148    |      pos      |
+ *  | Ver_timings | 1080 |      4      |   5  |      36    |      pos      |
+ *  +-------------+------+-------------+------+------------+---------------+
+ */
+
+module VGA(F50M_CLK,KEYA,RESET,VGA_HS,VGA_VS,VGA_R,VGA_G,VGA_B
     );
-input CLK,KEYA,RESET;
+input F50M_CLK,KEYA,RESET;       // f(CLK) = 148.5Mhz
 output VGA_HS,VGA_VS,VGA_R,VGA_G,VGA_B;
 
- reg HS1,VS1;
- wire FCLK,CCLK;
+//  reg HS1,VS1;
+ // wire FCLK,CCLK;
+  reg CLK;
   wire keyflag;
-  reg [1:0] MMD;//--å¯¹æŒ‰é”®æ¬¡æ•°è¿›è¡Œè®¡å½•
-  reg [5:0] FS;//--åŸºæœ¬æ—¶é’Ÿè®¡æ•°å™¨
-  reg [4:0] CC;//--ç”¨æ¥äº§ç”Ÿè¡Œé¢‘çš„è®¡æ•°å™¨
-  reg [8:0] LL;//--ç”¨æ¥äº§ç”Ÿåœºé¢‘çš„è®¡æ•°å™¨
-  reg [3:1] GRBX;//--ç¬¬ä¸€ç§å›¾è±¡çš„æ•°æ®
-  reg [3:1] GRBY;//--ç¬¬äºŒç§å›¾è±¡çš„æ•°æ®
-  reg [3:1] GRBP;//--ç¬¬ä¸‰ç§å›¾è±¡çš„æ•°æ®
-  wire [3:1] GRB;//--R,G,Bæ•°æ®
+
+  reg [1:0] MMD;//--¶Ô°´¼ü´ÎÊı½øĞĞ¼ÆÂ¼
+
+  // parameter  CC_DATA        = 12'd1920;
+  parameter  CC_FRONT_PORCH = 12'd2008;
+  parameter  CC_SYNC        = 12'd2052; 
+  parameter  CC_BACK_PORCH  = 12'd2199;
+
+  parameter  LL_FRONT_PORCH = 11'd1084;
+  parameter  LL_SYNC        = 11'd1089;
+  parameter  LL_BACK_PORCH  = 11'd1124;
+
+  reg [11:0] CC;//--ÓÃÀ´²úÉúĞĞÆµµÄ¼ÆÊıÆ÷
+  reg [10:0] LL;//--ÓÃÀ´²úÉú³¡ÆµµÄ¼ÆÊıÆ÷
+
+  reg [3:1] GRBX;//--µÚÒ»ÖÖÍ¼ÏóµÄÊı¾İ
+  reg [3:1] GRBY;//--µÚ¶şÖÖÍ¼ÏóµÄÊı¾İ
+  reg [3:1] GRBP;//--µÚÈıÖÖÍ¼ÏóµÄÊı¾İ
+  wire [3:1] GRB;//--R,G,BÊı¾İ
 
 key5 key5_a(
             .CLK(CLK),
@@ -41,14 +66,18 @@ key5 key5_a(
 				.din(KEYA),
 				.dout(keyflag)
            );
+pll  pll_a(
+            .inclk0(F50M_CLK),
+            .c0(CLK)
+)
 
 
-assign  GRB[2]=(GRBP[2] ^ KEYA) && HS1 && VS1;
-assign  GRB[3]=(GRBP[3] ^ KEYA) && HS1 && VS1;
-assign  GRB[1]=(GRBP[1] ^ KEYA) && HS1 && VS1;
+assign  GRB[2]=(GRBP[2] ^ KEYA);// && HS1 && VS1;
+assign  GRB[3]=(GRBP[3] ^ KEYA);// && HS1 && VS1;
+assign  GRB[1]=(GRBP[1] ^ KEYA);// && HS1 && VS1;
 
   
- //--è®°å½•æŒ‰é”®çš„æ¬¡æ•°  
+ //--¼ÇÂ¼°´¼üµÄ´ÎÊı  
 always @(posedge keyflag)
 begin
        if( MMD==2'b10) 
@@ -58,7 +87,7 @@ begin
        else MMD<=MMD+1;
 end  
 
- //--æ ¹æ®æŒ‰é”®æ¬¡æ•°æ¥é€‰æ‹©è¦æ˜¾ç¤ºçš„å›¾è±¡ï¼ˆç«–æ¡/æ¨ªçº¿/æ–¹å—ï¼‰
+ //--¸ù¾İ°´¼ü´ÎÊıÀ´Ñ¡ÔñÒªÏÔÊ¾µÄÍ¼Ïó£¨ÊúÌõ/ºáÏß/·½¿é£©
 always @(MMD)
 begin
       if (MMD==0)  GRBP<=GRBX;
@@ -67,72 +96,83 @@ begin
       else GRBP<=0;
 end
 
-//--ç”Ÿäº§ä¸€ä¸ªåŸºæœ¬æ—¶é’ŸFCLKï¼ˆ50*1/50M=1usï¼‰ï¼Œç”¨æ¥äº§ç”Ÿè¡Œé¢‘å’Œåœºé¢‘
 always @(posedge CLK)
- begin
-     if(FS==50)  FS<=0;
-     else FS<=FS+1;      
- end
+  begin
+    if(CC == CC_BACK_PORCH) 
+    begin
+      CC <= 0;
+      if (LL == LL_BACK_PORCH) LL <= 0;
+      else LL <= LL+1;
+    end
+    else CC <= CC+1;
+  end
+
+// //--Éú²úÒ»¸ö»ù±¾Ê±ÖÓFCLK£¨50*1/50M=1us£©£¬ÓÃÀ´²úÉúĞĞÆµºÍ³¡Æµ
+// always @(posedge CLK)
+//  begin
+//      if(FS==50)  FS<=0;
+//      else FS<=FS+1;      
+//  end
 
 
-assign FCLK=FS[5];
+// assign FCLK=FS[5];
 
-//--äº§ç”Ÿè¡Œé¢‘æ—¶é’Ÿï¼ŒCCLK=FCLK*29=29us,f=34.482KHZ
-always @(posedge FCLK)
-begin
-        if(CC==29)  CC<=0;
-        else CC<=CC+1;
-end
+// //--²úÉúĞĞÆµÊ±ÖÓ£¬CCLK=FCLK*29=29us,f=34.482KHZ
+// always @(posedge FCLK)
+// begin
+//         if(CC==29)  CC<=0;
+//         else CC<=CC+1;
+// end
 
 
-assign CCLK=CC[4];
+// assign CCLK=CC[4];
 
-//--äº§ç”Ÿåœºé¢‘æ—¶é’Ÿ,480çº¿
-always @(posedge CCLK)
- begin
-       if (LL==481)  LL<=0;
-         else LL<=LL+1;
- end
+// //--²úÉú³¡ÆµÊ±ÖÓ,480Ïß
+// always @(posedge CCLK)
+//  begin
+//        if (LL==481)  LL<=0;
+//          else LL<=LL+1;
+//  end
 
-//--é€šè¿‡è¡Œé¢‘æ—¶é’Ÿè®¡æ•°å™¨CCå’Œåœºé¢‘æ—¶é’Ÿè®¡æ•°å™¨äº§ç”ŸHSå’ŒVSæ—¶åº
+// //--Í¨¹ıĞĞÆµÊ±ÖÓ¼ÆÊıÆ÷CCºÍ³¡ÆµÊ±ÖÓ¼ÆÊıÆ÷²úÉúHSºÍVSÊ±Ğò
+// always @(CC or LL)
+// begin
+//   if (CC>=CC_DATA)  HS1<=1;
+//       else HS1<=0;
+//   if (LL>479)  VS1<=0;
+//       else VS1<=1;
+// end
+
+//--¹¹Ôì3ÖÖÍ¼Ïó
 always @(CC or LL)
-begin
-  if (CC>23)  HS1<=0;
-      else HS1<=1;
-  if (LL>479)  VS1<=0;
-      else VS1<=1;
-end
-
-//--æ„é€ 3ç§å›¾è±¡
-always @(CC or LL)
  begin
-	if (CC<3)  GRBX<=111;
-		else if (CC<6)   GRBX<=110;
-		else if (CC<9)   GRBX<=101;
-		else if (CC<12)  GRBX<=100;
-		else if (CC<15)   GRBX<=011;
-		else if (CC<18)   GRBX<=010;
-		else if (CC<21)   GRBX<=001;
+	if (CC<240)  GRBX<=111;
+		else if (CC<480)   GRBX<=110;
+		else if (CC<720)   GRBX<=101;
+		else if (CC< 960)  GRBX<=100;
+		else if (CC<1200)   GRBX<=011;
+		else if (CC<1440)   GRBX<=010;
+		else if (CC<1680)   GRBX<=001;
 		else GRBX<=0 ; 
 
 	
     
 	
 	
-	if (LL<60)   GRBY<=111;
-		 else if (LL<120)  GRBY<=110;
-		 else if (LL<180)  GRBY<=101;
-		 else if (LL<240)  GRBY<=100;
-		 else if (LL<300)  GRBY<=011;
-		 else if (LL<360)  GRBY<=010;
-		 else if (LL<420)  GRBY<=001;
+	if (LL<135)   GRBY<=111;
+		 else if (LL<270)  GRBY<=110;
+		 else if (LL<405)  GRBY<=101;
+		 else if (LL<540)  GRBY<=100;
+		 else if (LL<675)  GRBY<=011;
+		 else if (LL<810)  GRBY<=010;
+		 else if (LL<945)  GRBY<=001;
 		 else GRBY<=0; 
 
 	
    end
    
-assign   VGA_HS=HS1;
-assign	VGA_VS=VS1;
+assign  VGA_HS=CC >= CC_FRONT_PORCH && CC < CC_SYNC;
+assign	VGA_VS=LL >= LL_FRONT_PORCH && LL < LL_SYNC;
 assign	VGA_R=GRB[2];
 assign	VGA_G=GRB[3];
 assign	VGA_B=GRB[1];

@@ -2,124 +2,100 @@
 TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow Model Setup 'CLK'
-Slack : -3.629
-TNS   : -64.931
-
 Type  : Slow Model Setup 'key5:key5_a|keyclk'
-Slack : -3.531
-TNS   : -3.531
-
-Type  : Slow Model Setup 'CC[4]'
-Slack : -2.360
-TNS   : -14.826
-
-Type  : Slow Model Setup 'FS[5]'
-Slack : -2.037
-TNS   : -7.900
+Slack : -3.520
+TNS   : -3.520
 
 Type  : Slow Model Setup 'KEYA'
-Slack : -0.044
-TNS   : -0.060
+Slack : -0.015
+TNS   : -0.026
 
-Type  : Slow Model Hold 'CLK'
+Type  : Slow Model Setup 'pll_a|altpll_component|pll|clk[0]'
+Slack : 1.357
+TNS   : 0.000
+
+Type  : Slow Model Setup 'F50M_CLK'
+Slack : 2.835
+TNS   : 0.000
+
+Type  : Slow Model Hold 'F50M_CLK'
 Slack : -2.601
-TNS   : -10.517
+TNS   : -2.601
 
 Type  : Slow Model Hold 'KEYA'
-Slack : -1.476
-TNS   : -1.476
+Slack : -1.258
+TNS   : -1.258
 
-Type  : Slow Model Hold 'FS[5]'
-Slack : -0.832
-TNS   : -2.543
-
-Type  : Slow Model Hold 'CC[4]'
-Slack : 1.190
+Type  : Slow Model Hold 'pll_a|altpll_component|pll|clk[0]'
+Slack : 1.158
 TNS   : 0.000
 
 Type  : Slow Model Hold 'key5:key5_a|keyclk'
-Slack : 4.265
+Slack : 4.254
 TNS   : 0.000
-
-Type  : Slow Model Minimum Pulse Width 'CLK'
-Slack : -1.941
-TNS   : -44.977
 
 Type  : Slow Model Minimum Pulse Width 'KEYA'
 Slack : -1.777
 TNS   : -4.745
 
-Type  : Slow Model Minimum Pulse Width 'CC[4]'
-Slack : -0.742
-TNS   : -13.356
-
-Type  : Slow Model Minimum Pulse Width 'FS[5]'
-Slack : -0.742
-TNS   : -7.420
-
 Type  : Slow Model Minimum Pulse Width 'key5:key5_a|keyclk'
 Slack : -0.742
 TNS   : -1.484
 
+Type  : Slow Model Minimum Pulse Width 'pll_a|altpll_component|pll|clk[0]'
+Slack : 2.091
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'F50M_CLK'
+Slack : 8.758
+TNS   : 0.000
+
 Type  : Fast Model Setup 'key5:key5_a|keyclk'
-Slack : -1.191
-TNS   : -1.191
-
-Type  : Fast Model Setup 'CLK'
-Slack : -0.662
-TNS   : -5.384
-
-Type  : Fast Model Setup 'CC[4]'
-Slack : -0.154
-TNS   : -0.412
-
-Type  : Fast Model Setup 'FS[5]'
-Slack : -0.028
-TNS   : -0.028
+Slack : -1.187
+TNS   : -1.187
 
 Type  : Fast Model Setup 'KEYA'
 Slack : 0.640
 TNS   : 0.000
 
-Type  : Fast Model Hold 'CLK'
-Slack : -1.408
-TNS   : -6.427
+Type  : Fast Model Setup 'F50M_CLK'
+Slack : 1.788
+TNS   : 0.000
 
-Type  : Fast Model Hold 'FS[5]'
-Slack : -0.706
-TNS   : -2.565
+Type  : Fast Model Setup 'pll_a|altpll_component|pll|clk[0]'
+Slack : 4.736
+TNS   : 0.000
+
+Type  : Fast Model Hold 'F50M_CLK'
+Slack : -1.408
+TNS   : -1.408
 
 Type  : Fast Model Hold 'KEYA'
-Slack : -0.683
-TNS   : -0.683
+Slack : -0.622
+TNS   : -0.622
 
-Type  : Fast Model Hold 'CC[4]'
-Slack : 0.366
+Type  : Fast Model Hold 'pll_a|altpll_component|pll|clk[0]'
+Slack : 0.353
 TNS   : 0.000
 
 Type  : Fast Model Hold 'key5:key5_a|keyclk'
-Slack : 2.071
+Slack : 2.067
 TNS   : 0.000
-
-Type  : Fast Model Minimum Pulse Width 'CLK'
-Slack : -1.380
-TNS   : -30.380
 
 Type  : Fast Model Minimum Pulse Width 'KEYA'
 Slack : -1.222
 TNS   : -3.222
 
-Type  : Fast Model Minimum Pulse Width 'CC[4]'
-Slack : -0.500
-TNS   : -9.000
-
-Type  : Fast Model Minimum Pulse Width 'FS[5]'
-Slack : -0.500
-TNS   : -5.000
-
 Type  : Fast Model Minimum Pulse Width 'key5:key5_a|keyclk'
 Slack : -0.500
 TNS   : -1.000
+
+Type  : Fast Model Minimum Pulse Width 'pll_a|altpll_component|pll|clk[0]'
+Slack : 2.333
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'F50M_CLK'
+Slack : 9.000
+TNS   : 0.000
 
 ------------------------------------------------------------

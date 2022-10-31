@@ -135,7 +135,7 @@ RESERVED_INPUT               : 68        :        :                   :         
 RESERVED_INPUT               : 69        :        :                   :         : 4         :                
 RESERVED_INPUT               : 70        :        :                   :         : 4         :                
 VCCIO4                       : 71        : power  :                   : 3.3V    : 4         :                
-RESERVED_INPUT               : 72        :        :                   :         : 4         :                
+LED                          : 72        : output : 3.3-V LVTTL       :         : 4         : Y              
 GND                          : 73        : gnd    :                   :         :           :                
 RESERVED_INPUT               : 74        :        :                   :         : 4         :                
 RESERVED_INPUT               : 75        :        :                   :         : 4         :                
@@ -195,7 +195,7 @@ RESERVED_INPUT               : 128       :        :                   :         
 RESET                        : 129       : input  : 3.3-V LVTTL       :         : 3         : Y              
 GND+                         : 130       :        :                   :         : 3         :                
 GND+                         : 131       :        :                   :         : 3         :                
-CLK                          : 132       : input  : 3.3-V LVTTL       :         : 3         : Y              
+F50M_CLK                     : 132       : input  : 3.3-V LVTTL       :         : 3         : Y              
 RESERVED_INPUT               : 133       :        :                   :         : 3         :                
 RESERVED_INPUT               : 134       :        :                   :         : 3         :                
 RESERVED_INPUT               : 135       :        :                   :         : 3         :                
